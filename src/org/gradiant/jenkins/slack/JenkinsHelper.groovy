@@ -12,7 +12,7 @@ int getBuildNumber() {
 
 
 String getAbsoluteUrl() {
-  return currentBuild.absoluteUrl
+  return env.RUN_DISPLAY_URL
 }
 
 
