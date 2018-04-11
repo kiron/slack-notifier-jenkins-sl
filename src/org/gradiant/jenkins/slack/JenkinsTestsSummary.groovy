@@ -2,7 +2,6 @@ package org.gradiant.jenkins.slack
 
 import hudson.tasks.test.AbstractTestResultAction
 import hudson.model.Actionable
-import org.jenkinsci.plugins.displayurlapi.DisplayURLProvider
 
 @NonCPS
 String getTestSummary() {
@@ -13,8 +12,8 @@ String getTestSummary() {
     def total = testResultAction.getTotalCount()
     def failed = testResultAction.getFailCount()
     def skipped = testResultAction.getSkipCount()
-    def url = DisplayURLProvider.get().getRunURL(run) + "/tests"
-    summary = "Test results: (<${url}|Open>)\n\t"
+
+    summary = "Test results:\n\t"
     summary = summary + ("Passed: " + (total - failed - skipped))
     summary = summary + (", Failed: " + failed)
     summary = summary + (", Skipped: " + skipped)
